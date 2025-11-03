@@ -1,0 +1,38 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background: radial-gradient(circle at center, #2c2c54, #1e1e2f); /* base gradient */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    color: #ff6b6b;
+    text-align: center;
+    transition: background 0.2s ease;
+}
+
+h1 {
+    font-size: 3em;
+    cursor: pointer;
+    transition: transform 0.5s ease, color 0.5s ease;
+}
+
+h1:hover {
+    color: #1e1e2f; /* match background on hover */
+}
+
+h1:hover::before {
+    display: inline;
+    margin-right: 10px;
+}
+
+p {
+    font-size: 1.2em;
+    color: #ff9f9f;
+}
+
+#counter {
+    font-size: 2em;
+    margin-top: 20px;
+}
