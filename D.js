@@ -33,19 +33,23 @@ updateCounter(); // initial call
 document.body.addEventListener('mousemove', (e) => {
     const x = e.clientX / window.innerWidth * 100;
     const y = e.clientY / window.innerHeight * 100;
-    document.body.style.background = `radial-gradient(circle at ${x}% ${y}%, #94043eff 1%, #010000ff 17%)`;
+    document.body.style.background = `radial-gradient(circle at ${x}% ${y}%, #94043eff 1%, #010000ff 7%)`;
 });
 document.addEventListener('click', (e) => {
-    const x = (e.clientX / window.innerWidth) * 100;
-    const y = (e.clientY / window.innerHeight) * 100;
-    
-    // Create and append a temporary div for the animation
+    // Create ripple
     const ripple = document.createElement('div');
     ripple.className = 'ripple-gradient';
     ripple.style.left = `${e.clientX}px`;
     ripple.style.top = `${e.clientY}px`;
     document.body.appendChild(ripple);
-    
-    // Remove the element after animation completes
-    setTimeout(() => ripple.remove(), 1000);
+
+    // Remove ripple after 3 seconds
+    setTimeout(() => {
+        ripple.remove();
+    }, 5000);
+});
+document.addEventListener('click', (e) => {
+    const audio = document.getElementById('clickSound');
+    audio.currentTime = 0; // rewind
+    audio.play().catch(err => console.log('Audio blocked:', err));
 });

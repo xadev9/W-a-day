@@ -1,6 +1,6 @@
 body {
     font-family: 'Arial', sans-serif;
-    background: radial-gradient(circle at center,  #94043eff, #1e1e2f); /* base gradient */
+    background-color:rgb(0, 0, 0);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -14,7 +14,8 @@ body {
 
 h1, p, #counter {
     position: relative;
-    z-index: 2000; /* Higher than the ripple gradient */
+    z-index: 9999;
+    user-select: none;
 }
 
 h1 {
@@ -30,7 +31,7 @@ h1:hover::before {
 p {
     font-size: 1.2em;
     font-weight: bold;
-    color: rgb(0, 0, 0);
+    color: #1c1c44ff;
 }
 
 #counter {
@@ -73,7 +74,6 @@ p {
         background-size: 160% 160%;
         background-position: var(--mx) var(--my);
 }
-/* ...existing code... */
 
 .ripple-gradient {
     position: fixed;
@@ -82,7 +82,7 @@ p {
     width: 0;
     height: 0;
     border-radius: 50%;
-    background: radial-gradient(circle, #94043eff 0%, #010000ff 100%);
+    background: radial-gradient(circle, #94043eff 100%, #010000ff 100%);
     animation: rippleGrow 1s ease-out forwards;
     z-index: 1000;
 }
@@ -139,11 +139,11 @@ p {
         height: 180vmax;
         background: radial-gradient(circle, #94043eff 90%, #010000ff 100%);
         opacity: 1;
-    }
+    } 
     100% {
-        width: 200vmax;
-        height: 200vmax;
-        opacity: 0;
+        width: 2000vmax;
+        height: 2000vmax;
+        opacity: 1;
         background: radial-gradient(circle, #94043eff 100%, #94043eff 100%);
     }
 }
