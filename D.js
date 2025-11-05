@@ -1,5 +1,5 @@
 // ...existing code...
-const lastSeen = new Date('2025-07-13T12:00:00'); // change to your date
+const lastSeen = new Date('2025-08-27T12:00:00'); // change to your date
 
 function updateCounter() {
     const now = new Date();
@@ -33,5 +33,19 @@ updateCounter(); // initial call
 document.body.addEventListener('mousemove', (e) => {
     const x = e.clientX / window.innerWidth * 100;
     const y = e.clientY / window.innerHeight * 100;
-    document.body.style.background = `radial-gradient(circle at ${x}% ${y}%, #1c1c44ff 1%, #010000ff 17%)`;
+    document.body.style.background = `radial-gradient(circle at ${x}% ${y}%, #94043eff 1%, #010000ff 17%)`;
+});
+document.addEventListener('click', (e) => {
+    const x = (e.clientX / window.innerWidth) * 100;
+    const y = (e.clientY / window.innerHeight) * 100;
+    
+    // Create and append a temporary div for the animation
+    const ripple = document.createElement('div');
+    ripple.className = 'ripple-gradient';
+    ripple.style.left = `${e.clientX}px`;
+    ripple.style.top = `${e.clientY}px`;
+    document.body.appendChild(ripple);
+    
+    // Remove the element after animation completes
+    setTimeout(() => ripple.remove(), 1000);
 });
