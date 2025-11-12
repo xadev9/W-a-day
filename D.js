@@ -1,5 +1,5 @@
 // ...existing code...
-const lastSeen = new Date('2025-08-27T12:00:00'); // change to your date
+const lastSeen = new Date('2025-08-27T12:22:00'); // change to your date
 
 function updateCounter() {
     const now = new Date();
